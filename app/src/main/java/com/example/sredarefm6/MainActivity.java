@@ -8,13 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Integer> numbers = new ArrayList<Integer>();
-    int val, sum = 0;
-    double average;
+    int val;
+    double average, sum = 0, size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button add = (Button) findViewById(R.id.button);
-
     }
 
     public void addNum(View view) {
@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         //среднее арифметическое
         sum = sum + val;
-        average = sum / numbers.size();
+        size = numbers.size();
+        average = sum / size;
         averageNumbers.setText("" + average);
     }
 }
